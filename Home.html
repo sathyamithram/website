@@ -1,0 +1,1762 @@
+
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crazy Boys Events | Home
+    </title>
+    <link rel="icon" type="image/png" href="images/logo/logo-icon.png">
+    <meta name="description"
+        content="Pan India Operations · 20+ Years of Excellence. Crazy Boys Events crafts extraordinary corporate events, wellness programs, and alumni management solutions.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS Play CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Alpine.js -->
+    <script defer src="https://unpkg.com/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+
+
+
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            DEFAULT: '#4F46E5',
+                            50: '#F5F3FF',
+                            100: '#EDE9FE',
+                            600: '#4F46E5',
+                            900: '#1E1B4B',
+                        },
+                        slate: {
+                            950: '#0F172A',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                    },
+                    borderRadius: {
+                        '20px': '20px',
+                        '32px': '32px',
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        [x-cloak] { display: none !important; }
+        
+        @layer base {
+            body {
+                @apply font-sans text-slate-900 bg-[#FBFBFE];
+            }
+            p {
+                @apply text-[18px] text-slate-600 leading-relaxed;
+            }
+            h1, h2, h3, h4 {
+                @apply font-sans font-bold tracking-tight [word-spacing:0.15em];
+            }
+        }
+
+        @layer components {
+            .btn-primary {
+                @apply relative inline-block overflow-hidden px-10 py-5 bg-brand text-white font-bold rounded-full transition-all duration-500 hover:scale-105 active:scale-95 shadow-[0_20px_50px_rgba(79,70,229,0.3)] tracking-tight text-[15px] z-10;
+            }
+            .btn-primary::before {
+                content: '';
+                @apply absolute inset-0 bg-slate-950 -z-10 transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] scale-x-0 origin-left;
+            }
+            .btn-primary:hover::before {
+                @apply scale-x-100;
+            }
+            .btn-white {
+                @apply relative inline-block overflow-hidden px-10 py-5 bg-white text-slate-950 font-bold rounded-full transition-all duration-500 hover:text-white hover:scale-105 active:scale-95 shadow-[0_20px_50px_rgba(255,255,255,0.1)] tracking-tight text-[15px] z-10;
+            }
+            .btn-white::before {
+                content: '';
+                @apply absolute inset-0 bg-brand -z-10 transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] scale-x-0 origin-left;
+            }
+            .btn-white:hover::before {
+                @apply scale-x-100;
+            }
+            .btn-outline {
+                @apply inline-block px-10 py-5 border-2 border-white text-white font-bold rounded-full hover:bg-white hover:text-brand transition-all duration-500 tracking-tight text-[15px];
+            }
+            .glass-nav {
+                @apply bg-gradient-to-r from-slate-300/95 to-slate-100/95 backdrop-blur-3xl border-b border-white/40 shadow-xl;
+            }
+            .glass-card {
+                @apply bg-white/10 backdrop-blur-2xl border border-white/20 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.3)];
+            }
+            .section-heading {
+                @apply text-4xl md:text-6xl font-bold mb-10 leading-[1.1] tracking-tight [word-spacing:0.15em];
+            }
+            .eyebrow {
+                @apply inline-block px-6 py-2.5 rounded-full text-[14px] tracking-wide font-bold mb-10 bg-brand text-white shadow-xl shadow-brand/20;
+            }
+        }
+
+        .marquee-mask {
+            mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+        }
+
+        .grain-overlay {
+            background-image: url("https://grainy-gradients.vercel.app/noise.svg");
+            filter: contrast(150%) brightness(1000%);
+        }
+
+        @keyframes ken-burns {
+            0% { transform: scale(1.05); }
+            100% { transform: scale(1.25); }
+        }
+
+        .animate-ken-burns {
+            animation: ken-burns 20s ease-in-out infinite alternate;
+        }
+
+        .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .text-glow {
+            text-shadow: 0 0 30px rgba(255,255,255,0.8);
+        }
+
+        @keyframes progress-fill {
+            from { width: 0%; }
+            to { width: 100%; }
+        }
+
+        .animate-progress {
+            animation: progress-fill 6s linear forwards;
+        }
+
+        .progress-glow {
+            box-shadow: 0 0 15px 2px rgba(79, 70, 229, 0.6);
+        }
+    </style>
+</head>
+
+<body x-data="{ 
+    mobileMenu: false,
+    services: [
+        { 
+            title: 'Corporate Events', 
+            desc: 'Transforming your corporate vision into extraordinary experiences with precision and creativity.', 
+            url: 'corporate-events.html',
+            color: '#4F46E5', 
+            icon: 'M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A4.877 4.877 0 0012 9.75c-1.774 0-3.364.946-4.248 2.378V21H3V9l9-6 9 6v12h-18z', 
+            bg: '#F8FAFC', 
+            tag: 'Event Management',
+            heroImg: 'images/hero/gala.png'
+        },
+        { 
+            title: 'Stalls & Exhibition', 
+            desc: 'Creating engaging exhibition stalls that attract attention and drive footfall with innovative design and fabrication.', 
+            url: 'stalls-exhibition.html',
+            color: '#F97316', 
+            icon: 'M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z', 
+            bg: '#F0FDFA', 
+            tag: 'Exhibition Services',
+            heroImg: 'images/hero/exhibition_stall.png'
+        },
+        { 
+            title: 'Alumni & Academic Events', 
+            desc: 'Curating meaningful academic and alumni events that foster connections and celebrate milestones.', 
+            url: 'alumni-academic-events.html',
+            color: '#10B981', 
+            icon: 'M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z', 
+            bg: '#ECFDF5', 
+            tag: 'Academic Events',
+            heroImg: 'images/hero/alumni.png'
+        },
+
+        { 
+            title: 'Protocol & Family Events', 
+            desc: 'Managing protocol and family events with elegance, precision, and meticulous attention to detail.', 
+            url: 'protocol-family-events.html',
+            color: '#F59E0B', 
+            icon: 'M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z', 
+            bg: '#FFFBEB', 
+            tag: 'Elite Events',
+            heroImg: 'images/hero/protocol.png'
+        },
+        { 
+            title: 'Integrated Demand Generation Services', 
+            desc: 'Connecting businesses with the right audience through telecalling, lead generation, and targeted outreach.', 
+            url: 'integrated-demand-generation.html',
+            color: '#06B6D4', 
+            icon: 'M13 10V3L4 14h7v7l9-11h-7z', 
+            bg: '#ECFEFF', 
+            tag: 'Demand Generation',
+            heroImg: 'images/hero/demand_gen.png'
+        },
+        { 
+            title: 'Archiving & Record Management', 
+            desc: 'Secure storage and digital transformation of critical business records.', 
+            url: 'archiving-record-management.html',
+            color: '#6366F1', 
+            icon: 'M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0a2 2 0 01-2 2H6a2 2 0 01-2-2m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m15-3h3m-3 4h3m-15-4H3m3 4H3', 
+            bg: '#EEF2FF', 
+            tag: 'Record Management',
+            dropdownOnly: true
+        },
+        { 
+            title: 'Feasibility Study', 
+            desc: 'Credible data-backed assumptions for successful business launches.', 
+            url: 'feasibility-study.html',
+            color: '#8B5CF6', 
+            icon: 'M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z', 
+            bg: '#F5F3FF', 
+            tag: 'Business Strategy',
+            dropdownOnly: true
+        }
+    ],
+    activeSlide: 0,
+    get sliderServices() {
+        return this.services.filter(s => !s.dropdownOnly);
+    },
+    init() {
+        setInterval(() => {
+            this.activeSlide = (this.activeSlide + 1) % this.sliderServices.length;
+        }, 6000);
+    }
+}">
+
+    <!-- Floating Header -->
+<header class="absolute top-0 left-0 right-0 z-[100]">
+    <div class="container mx-auto px-6">
+        <nav class="bg-transparent py-8 transition-all duration-700">
+            <div class="flex items-center justify-between">
+
+                <!-- Brand Identity -->
+                <a href="index.html" class="flex items-center group">
+                    <img src="images/logo/logo.png" alt="Crazy Boys Events Logo"
+                        class="h-20 w-auto object-contain transition-transform group-hover:scale-105">
+                </a>
+
+                <!-- Navigation Links -->
+                <div class="hidden lg:flex items-center gap-12">
+                    <a href="index.html"
+                        class="text-[18px] font-semibold tracking-tight transition-colors relative group/link text-white">
+                        Home
+                        <span
+                            class="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand transition-all group-hover/link:w-full"></span>
+                    </a>
+                    <a href="about.html"
+                        class="text-[18px] font-semibold tracking-tight transition-colors relative group/link text-white">
+                        About
+                        <span
+                            class="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand transition-all group-hover/link:w-full"></span>
+                    </a>
+
+                    <!-- Services Dropdown -->
+                    <div class="relative group/dropdown" x-data="{ open: false }" @mouseenter="open = true"
+                        @mouseleave="open = false">
+                        <button
+                            class="text-[18px] font-semibold tracking-tight transition-colors flex items-center gap-2 relative group/link text-white">
+                            Services
+                            <svg class="w-3 h-3 transition-transform duration-300" :class="open ? 'rotate-180' : ''"
+                                fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
+                                    d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                            </svg>
+                            <span
+                                class="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand transition-all group-hover/link:w-full"></span>
+                        </button>
+
+                        <div x-cloak x-show="open" x-transition.opacity class="absolute top-full left-0 pt-4 w-[320px]">
+                            <!-- Main Card -->
+                            <div
+                                class="relative bg-white border border-slate-100 shadow-[0_20px_50px_rgba(0,0,0,0.1)] rounded-[24px] p-2 overflow-hidden">
+                                <!-- Items -->
+                                <template x-for="service in services" :key="service.title">
+                                    <a :href="service.url"
+                                        class="relative flex items-center gap-3 p-2 rounded-xl transition-all duration-300 group/item hover:bg-slate-50">
+
+                                        <!-- Icon Container -->
+                                        <div class="relative w-9 h-9 rounded-xl flex items-center justify-center transition-transform duration-300 group-hover/item:scale-105"
+                                            :style="`background: ${service.bg}; color: ${service.color}`">
+                                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                    :d="service.icon" />
+                                            </svg>
+                                        </div>
+
+                                        <div class="relative">
+                                            <span
+                                                class="text-[16px] font-semibold text-slate-700 group-hover/item:text-brand transition-colors"
+                                                x-text="service.title"></span>
+                                        </div>
+                                    </a>
+                                </template>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="contact.html"
+                        class="text-[18px] font-semibold tracking-tight transition-colors relative group/link text-white">
+                        Contact
+                        <span
+                            class="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand transition-all group-hover/link:w-full"></span>
+                    </a>
+                    <!-- <a href="blog.html"
+                        class="text-[18px] font-semibold tracking-tight transition-colors relative group/link"
+                        :class="(scrolled || forceWhite) ? 'text-slate-950 hover:text-brand' : 'text-white'">
+                        Blog
+                        <span
+                            class="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand transition-all group-hover/link:w-full"></span>
+                    </a> -->
+                </div>
+
+                <!-- Action Button -->
+                <div class="hidden sm:flex items-center gap-6">
+                    <a href="tel:+919966654366" class="hidden xl:flex flex-col items-end group/call">
+                        <span
+                            class="text-[10px] font-bold uppercase tracking-widest leading-none mb-1 transition-colors text-slate-300">Elite
+                            Support</span>
+                        <span class="text-[20px] font-bold transition-colors text-white">+91
+                            9966654366</span>
+                    </a>
+                    <a href="contact.html" class="btn-primary !px-7 !py-3.5 !text-[18px] shadow-xl shadow-brand/20">
+                        Contact Us
+                    </a>
+                </div>
+
+                <!-- Mobile Toggle -->
+                <button @click="mobileMenu = !mobileMenu"
+                    class="lg:hidden p-2 hover:bg-white/10 rounded-xl transition-colors text-white">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16m-7 6h7" />
+                    </svg>
+                </button>
+            </div>
+        </nav>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div x-cloak x-show="mobileMenu" x-transition.opacity class="fixed inset-0 bg-slate-950/20 backdrop-blur-sm z-[60]"
+        @click="mobileMenu = false"></div>
+    <div x-cloak x-show="mobileMenu" x-transition:enter="transition ease-out duration-500"
+        x-transition:enter-start="translate-x-full" x-transition:enter-end="translate-x-0"
+        class="fixed right-0 top-0 bottom-0 w-full sm:w-[80%] max-w-sm bg-white z-[70] p-10 shadow-2xl flex flex-col overflow-y-auto">
+
+        <div class="flex items-center justify-between mb-12">
+            <img src="images/logo/logo.png" alt="Crazy Boys Logo" class="h-12 w-auto brightness-0">
+            <button @click="mobileMenu = false" class="p-2 text-slate-400 hover:text-slate-900 transition-colors">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </div>
+
+        <div class="space-y-8">
+            <a href="index.html"
+                class="block text-4xl font-bold tracking-tighter text-slate-900 hover:text-brand transition-colors"
+                @click="mobileMenu = false">Home</a>
+            <a href="about.html"
+                class="block text-4xl font-bold tracking-tighter text-slate-900 hover:text-brand transition-colors"
+                @click="mobileMenu = false">About</a>
+
+            <!-- Services Accordion -->
+            <div x-data="{ open: false }" class="space-y-4">
+                <button @click="open = !open"
+                    class="w-full flex items-center justify-between text-4xl font-bold tracking-tighter text-slate-900 hover:text-brand transition-colors text-left">
+                    <span>Services</span>
+                    <svg class="w-8 h-8 transition-transform duration-300"
+                        :class="open ? 'rotate-180 text-brand' : 'text-slate-300'" fill="none" stroke="currentColor"
+                        viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </button>
+
+                <div x-show="open" x-collapse class="pl-4 space-y-4 pt-4 border-l-2 border-slate-100">
+                    <template x-for="service in services" :key="service.title">
+                        <a :href="service.url"
+                            class="flex items-center gap-4 p-2 rounded-xl hover:bg-slate-50 transition-all group"
+                            @click="mobileMenu = false">
+                            <div class="w-10 h-10 rounded-xl flex items-center justify-center transition-colors"
+                                :style="`background: ${service.bg}; color: ${service.color}`">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        :d="service.icon" />
+                                </svg>
+                            </div>
+                            <span class="text-lg font-bold text-slate-700 group-hover:text-brand transition-colors"
+                                x-text="service.title"></span>
+                        </a>
+                    </template>
+                </div>
+            </div>
+
+            <a href="contact.html"
+                class="block text-4xl font-bold tracking-tighter text-slate-900 hover:text-brand transition-colors"
+                @click="mobileMenu = false">Contact</a>
+        </div>
+
+        <div class="mt-auto pt-12 border-t border-slate-100">
+            <p class="text-[10px] font-bold text-slate-400 tracking-wider mb-4">Immediate Connect</p>
+            <a href="tel:+919966654366" class="text-2xl font-bold text-slate-950">+91 9966654366</a>
+        </div>
+    </div>
+</header>
+
+        <main>
+            <!-- Hero Section: High-Contrast Reference Aesthetic -->
+<section class="relative h-[90vh] md:h-screen overflow-hidden bg-slate-950">
+    <!-- Grain Texture Overlay -->
+    <div class="absolute inset-0 z-[5] opacity-20 pointer-events-none grain-overlay"></div>
+
+    <template x-for="(slide, index) in sliderServices" :key="index">
+        <div x-show="activeSlide === index" x-transition:enter="transition ease-out duration-[2000ms]"
+            x-transition:enter-start="opacity-0 scale-105" x-transition:enter-end="opacity-100 scale-100"
+            x-transition:leave="transition ease-in duration-1000 absolute inset-0 z-0"
+            x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0"
+            class="absolute inset-0 w-full h-full flex items-center">
+
+            <!-- Cinematic Background Layer -->
+            <div class="absolute inset-0 z-0 overflow-hidden">
+                <img :src="slide.heroImg" class="w-full h-full object-cover opacity-70 animate-ken-burns">
+
+                <!-- Reference Dark Gradient Overlay (for White Text Pop) -->
+                <div class="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-950/40 to-transparent z-10">
+                </div>
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent z-10"></div>
+
+                <!-- Dynamic Accent Glow -->
+                <div class="absolute -top-[20%] -left-[10%] w-[60%] h-[60%] blur-[150px] opacity-30 z-10 rounded-full"
+                    :style="`background-color: ${slide.color}`"></div>
+            </div>
+
+            <div class="container mx-auto px-6 pl-16 relative z-20">
+                <div class="max-w-5xl">
+                    <!-- Eyebrow -->
+                    <div x-show="activeSlide === index" x-transition:enter="transition ease-out duration-700 delay-200"
+                        x-transition:enter-start="opacity-0 -translate-y-4"
+                        x-transition:enter-end="opacity-100 translate-y-0">
+                        <span class="eyebrow" x-text="slide.tag"></span>
+                    </div>
+
+                    <!-- Refined White Sans-Serif Heading -->
+                    <h1 class="section-heading mb-12 text-white" x-show="activeSlide === index"
+                        x-transition:enter="transition ease-out duration-1000 delay-400"
+                        x-transition:enter-start="opacity-0 translate-y-20 blur-xl"
+                        x-transition:enter-end="opacity-100 translate-y-0 blur-0">
+                        <span class="block" x-text="slide.title"></span>
+                    </h1>
+
+                    <!-- Description and CTA -->
+                    <div class="mt-12 space-y-12" x-show="activeSlide === index"
+                        x-transition:enter="transition ease-out duration-1000 delay-600"
+                        x-transition:enter-start="opacity-0 translate-y-12"
+                        x-transition:enter-end="opacity-100 translate-y-0">
+
+                        <div class="max-w-2xl">
+                            <p class="text-[18px] md:text-[18px] text-white/80 leading-relaxed font-bold tracking-tight mb-6"
+                                x-text="slide.desc"></p>
+                            <div class="h-1 w-24 bg-white/40 rounded-full"></div>
+                        </div>
+
+                        <div class="flex flex-wrap items-center gap-8">
+                            <a href="contact.html" class="btn-primary text-[18px] font-semibold px-12 py-6">
+                                Contact Us
+                            </a>
+
+                            <a href="#services"
+                                class="group/btn flex text-[18px] font-semibold items-center gap-4 text-white hover:text-brand transition-colors">
+                                <span
+                                    class="text-[18px] font-semibold tracking-tight border-b-2 border-white/20 pb-1 group-hover/btn:border-brand transition-all">View
+                                    Services</span>
+                                <div
+                                    class="w-12 h-12 rounded-full border-2 border-white/20 flex items-center justify-center group-hover/btn:bg-brand group-hover/btn:border-brand group-hover/btn:text-white transition-all duration-500">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
+                                            d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
+                                    </svg>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Enhanced Status Box -->
+            <div class="absolute bottom-24 right-12 hidden xl:block z-30" x-show="activeSlide === index"
+                x-transition:enter="transition cubic-bezier(0.34, 1.56, 0.64, 1) duration-1000 delay-800"
+                x-transition:enter-start="opacity-0 translate-x-20" x-transition:enter-end="opacity-100 translate-x-0">
+                <div class="glass-card p-10 rounded-32px border-white/10 max-w-sm relative overflow-hidden group">
+                    <div class="relative z-10">
+                        <p class="text-[14px] font-bold tracking-wider text-white/50 mb-6">Booking Now</p>
+                        <p class="text-white font-black text-[18px] leading-none mb-4 tracking-tighter">Bespoke Curation
+                            for 2026</p>
+                        <p class="text-white/60 text-[18px] font-medium leading-relaxed">Transforming your vision into a
+                            landmark event. Signature slots remaining.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <!-- Refined Controls -->
+
+
+    <!-- Bottom Global Progress Bar (Animatic Starting & Ending Bar) -->
+    <div class="absolute bottom-0 left-0 right-0 h-2 z-40 flex gap-1 px-1 group/progress">
+        <template x-for="(slide, index) in sliderServices" :key="index">
+            <div class="h-full flex-1 bg-black/5 relative overflow-hidden cursor-pointer transition-all duration-500 hover:h-3"
+                @click="activeSlide = index">
+                <!-- Inactive / Background -->
+                <div class="absolute inset-0 bg-slate-100/50"></div>
+
+                <!-- Completed Slides -->
+                <div class="absolute inset-0 bg-brand/40" x-show="activeSlide > index"></div>
+
+                <!-- Active Animating Slide -->
+                <div class="absolute inset-y-0 left-0 bg-brand flex items-center justify-end"
+                    :class="activeSlide === index ? 'animate-progress' : 'w-0'" x-show="activeSlide === index">
+                    <!-- Progress Tip Glow -->
+                    <div class="w-1 h-full bg-white progress-glow"></div>
+                </div>
+
+                <!-- Finished State -->
+                <div class="absolute inset-0 bg-brand" x-show="activeSlide > index"></div>
+            </div>
+        </template>
+    </div>
+</section>
+
+<style>
+    @keyframes float {
+
+        0%,
+        100% {
+            transform: translateY(0);
+        }
+
+        50% {
+            transform: translateY(-30px);
+        }
+    }
+
+    @keyframes float-delayed {
+
+        0%,
+        100% {
+            transform: translateY(0);
+        }
+
+        50% {
+            transform: translateY(20px);
+        }
+    }
+
+    .animate-float {
+        animation: float 10s ease-in-out infinite;
+    }
+
+    .animate-float-delayed {
+        animation: float-delayed 12s ease-in-out infinite;
+    }
+
+    .vertical-text {
+        writing-mode: vertical-rl;
+        text-orientation: mixed;
+    }
+</style>
+<!-- Welcome to Crazy Boys Deep Dive -->
+<section class="py-32 bg-surface relative overflow-hidden">
+    <!-- Background Image with Overlay -->
+    <div class="absolute inset-0 z-0 pointer-events-none">
+        <img src="images/about/about_bg.png"
+            class="w-full h-full object-cover opacity-[0.15] grayscale contrast-125">
+        <div class="absolute inset-0 bg-gradient-to-b from-surface/80 via-transparent to-surface/80"></div>
+    </div>
+
+    <div class="container mx-auto px-6 pl-16 relative z-10">
+        <div class="grid lg:grid-cols-12 gap-24 items-center">
+            <!-- Left: Illustration Area -->
+            <div class="lg:col-span-5 relative">
+                <div class="relative z-10 rounded-48px overflow-hidden shadow-[0_50px_100px_rgba(0,0,0,0.1)]">
+                    <img src="images/shared/deep_dive_main.png"
+                        class="w-full h-full object-cover transition-transform duration-[2000ms] ease-out group-hover:scale-105">
+                    <div class="absolute inset-0 bg-brand/5 backdrop-blur-[1px]"></div>
+                </div>
+
+                <!-- Metrics Overlay -->
+                <div
+                    class="absolute -bottom-10 -right-10 bg-white p-10 rounded-32px shadow-2xl z-20 border border-slate-100 hidden xl:block">
+                    <div class="flex items-center gap-6">
+                        <div class="w-14 h-14 bg-slate-950 rounded-20px flex items-center justify-center text-white">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                    d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                            </svg>
+                        </div>
+                        <div>
+                            <p class="text-[13px] font-bold tracking-wide text-slate-400 mb-1">Growth strategy</p>
+                            <p class="text-[18px] font-black text-slate-950">+124% YoY</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right: Content Area -->
+            <div class="lg:col-span-7">
+                <span class="eyebrow">Institutional Heritage</span>
+                <h2
+                    class="text-4xl md:text-6xl font-bold tracking-tight text-slate-950 mb-10 leading-none [word-spacing:0.15em]">
+                    Welcome to <span class="text-brand">Crazy Boys</span>
+                </h2>
+                <div class="space-y-6 max-w-2xl mb-16">
+                    <p class="  text-slate-600 leading-relaxed">
+                        Your trusted partner in strategic business solutions with over 8 years of industry excellence.
+                        Our expertise goes beyond events—we provide comprehensive services that drive business growth,
+                        enhance employee well-being, and strengthen professional networks.
+                    </p>
+
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-x-12 gap-y-10 mb-16">
+                    <template x-for="(item, i) in [
+                        { title: 'Archiving & Records', desc: 'Securely organizing, digitizing, and preserving business-critical documents for seamless access and compliance.' },
+                        { title: 'B2B Lead Generation', desc: 'Connecting businesses with high-quality prospects through targeted, data-driven strategies.' },
+                        { title: 'Corporate Employee Wellbeing ', desc: 'Enhancing workplace productivity and engagement with customized wellness programs.' },
+                        { title: 'Alumni Management', desc: ' Building and maintaining strong alumni networks to foster long-term professional relationships.' }
+                    ]" :key="i">
+                        <div class="group">
+                            <div class="flex items-center gap-4 mb-4">
+                                <div class="w-2 h-2 rounded-full bg-brand"></div>
+                                <h4 class="text-[17px] font-bold tracking-tight text-slate-900" x-text="item.title">
+                                </h4>
+                            </div>
+                            <p class="text-slate-600 leading-relaxed" x-text="item.desc"></p>
+                        </div>
+                    </template>
+                </div>
+
+                <a href="contact.html" class="btn-primary text-[18px] font-semibold py-4 px-10">Connect With Experts</a>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Ultra Premium Services Section: Elite Hover Gallery -->
+<section id="services" class="py-16 lg:py-20 bg-[#F9FBFF] relative overflow-hidden" x-data="{ activeService: 0 }">
+    <!-- Subtle Background Texture -->
+    <div
+        class="absolute inset-0 opacity-[0.02] pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]">
+    </div>
+    <div class="absolute top-0 right-0 w-1/3 h-full bg-brand/5 skew-x-12 translate-x-1/4 -z-10"></div>
+
+    <div class="container mx-auto px-6 pl-16 relative z-10">
+
+        <!-- Centered Heading -->
+        <div class="text-center mb-16">
+            <span class="eyebrow mb-6 inline-block">Strategic Capabilities</span>
+            <h2
+                class="text-4xl md:text-6xl font-bold tracking-tight text-slate-950 leading-[0.9] [word-spacing:0.15em]">
+                Our <span class="text-brand">Expertise</span>
+            </h2>
+            <p class="max-w-2xl mx-auto mt-4 font-semibold">Delivering surgical precision across
+                every institutional touchpoint.</p>
+        </div>
+
+        <div class="grid lg:grid-cols-12 gap-16 lg:gap-24 items-center">
+
+            <!-- Left Column: Visual Panel -->
+            <div class="lg:col-span-6 hidden lg:block relative">
+                <div>
+                    <!-- Image Reveal Showcase -->
+                    <div
+                        class="aspect-[4/5] rounded-[48px] overflow-hidden relative shadow-[0_40px_80px_rgba(0,0,0,0.1)] border-8 border-white group">
+                        <!-- Service 1 Image (Corporate Events) -->
+                        <img src="images/hero/gala.png"
+                            class="absolute inset-0 w-full h-full object-cover transition-all duration-[1200ms] ease-[cubic-bezier(0.23,1,0.32,1)]"
+                            :class="activeService === 0 ? 'opacity-100 scale-100' : 'opacity-0 scale-110'">
+
+                        <!-- Service 2 Image (Stalls & Exhibition) -->
+                        <img src="images/hero/exhibition_stall.png"
+                            class="absolute inset-0 w-full h-full object-cover transition-all duration-[1200ms] ease-[cubic-bezier(0.23,1,0.32,1)]"
+                            :class="activeService === 1 ? 'opacity-100 scale-100' : 'opacity-0 scale-110'">
+
+                        <!-- Service 3 Image (Alumni & Academic) -->
+                        <img src="images/hero/alumni.png"
+                            class="absolute inset-0 w-full h-full object-cover transition-all duration-[1200ms] ease-[cubic-bezier(0.23,1,0.32,1)]"
+                            :class="activeService === 2 ? 'opacity-100 scale-100' : 'opacity-0 scale-110'">
+
+                        <!-- Service 4 Image (Protocol & Family) -->
+                        <img src="images/hero/protocol.png"
+                            class="absolute inset-0 w-full h-full object-cover transition-all duration-[1200ms] ease-[cubic-bezier(0.23,1,0.32,1)]"
+                            :class="activeService === 3 ? 'opacity-100 scale-100' : 'opacity-0 scale-110'">
+
+                        <!-- Service 5 Image (Demand Gen) -->
+                        <img src="images/hero/demand_gen.png"
+                            class="absolute inset-0 w-full h-full object-cover transition-all duration-[1200ms] ease-[cubic-bezier(0.23,1,0.32,1)]"
+                            :class="activeService === 4 ? 'opacity-100 scale-100' : 'opacity-0 scale-110'">
+
+                        <!-- Service 6 Image (Feasibility Study) -->
+                        <img src="images/feasibility-study/feasibility_header_hero_1777536694470.png"
+                            class="absolute inset-0 w-full h-full object-cover transition-all duration-[1200ms] ease-[cubic-bezier(0.23,1,0.32,1)]"
+                            :class="activeService === 5 ? 'opacity-100 scale-100' : 'opacity-0 scale-110'">
+
+                        <!-- Service 7 Image (Archiving) -->
+                        <img src="images/hero/archiving.png"
+                            class="absolute inset-0 w-full h-full object-cover transition-all duration-[1200ms] ease-[cubic-bezier(0.23,1,0.32,1)]"
+                            :class="activeService === 6 ? 'opacity-100 scale-100' : 'opacity-0 scale-110'">
+
+                        <!-- Service 8 Image (Web Dev) -->
+                        <img src="images/hero/web_dev.png"
+                            class="absolute inset-0 w-full h-full object-cover transition-all duration-[1200ms] ease-[cubic-bezier(0.23,1,0.32,1)]"
+                            :class="activeService === 7 ? 'opacity-100 scale-100' : 'opacity-0 scale-110'">
+
+                        <div
+                            class="absolute inset-0 bg-slate-950/10 mix-blend-multiply transition-opacity duration-700 group-hover:opacity-0">
+                        </div>
+                        <div class="absolute inset-0 bg-brand/5"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column: Interactive Editorial List -->
+            <div class="lg:col-span-6">
+                <div class="flex flex-col gap-2">
+
+                    <!-- Service 1: Corporate Events -->
+                    <a href="corporate-events.html" class="block group p-5 lg:p-6 border-2 border-transparent hover:border-slate-200 hover:bg-white rounded-[32px] cursor-pointer relative overflow-hidden transition-all duration-500 hover:shadow-xl hover:shadow-slate-200/50"
+                        @mouseenter="activeService = 0">
+                        <div class="relative z-10 flex flex-col md:flex-row md:items-start justify-between gap-4">
+                            <div class="flex gap-4 lg:gap-6 items-start w-full md:w-1/2">
+                                <span
+                                    class="text-sm font-bold text-slate-300 group-hover:text-brand transition-colors mt-2">01</span>
+                                <div>
+                                    <h3
+                                        class="text-2xl lg:text-3xl font-semibold text-slate-950 tracking-tighter mb-1 group-hover:text-brand transition-colors duration-300">
+                                        Corporate Events</h3>
+                                    <span
+                                        class="text-[12px] font-bold tracking-wider text-slate-400 group-hover:text-slate-600 transition-colors">Event Management</span>
+                                </div>
+                            </div>
+                            <div class="md:w-1/2 flex flex-col md:items-end md:text-right">
+                                <p
+                                    class="mb-4 group-hover:text-slate-700 transition-colors font-semibold text-sm lg:text-base">
+                                   Bespoke event planning, production, and management for high-impact corporate gatherings.</p>
+                                <div
+                                    class="w-11 h-11 rounded-full border-2 border-slate-200 flex items-center justify-center group-hover:bg-brand group-hover:border-brand group-hover:text-white transition-all duration-500 shadow-sm">
+                                    <svg class="w-5 h-5 -rotate-45 group-hover:rotate-0 transition-transform duration-500 delay-100"
+                                        fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                            d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Service 2: Stalls & Exhibition -->
+                    <a href="stalls-exhibition.html" class="block group p-5 lg:p-6 border-2 border-transparent hover:border-slate-200 hover:bg-white rounded-[32px] cursor-pointer relative overflow-hidden transition-all duration-500 hover:shadow-xl hover:shadow-slate-200/50"
+                        @mouseenter="activeService = 1">
+                        <div class="relative z-10 flex flex-col md:flex-row md:items-start justify-between gap-4">
+                            <div class="flex gap-4 lg:gap-6 items-start w-full md:w-1/2">
+                                <span
+                                    class="text-sm font-bold text-slate-300 group-hover:text-brand transition-colors mt-2">02</span>
+                                <div>
+                                    <h3
+                                        class="text-2xl lg:text-3xl font-semibold text-slate-950 tracking-tighter mb-1 group-hover:text-brand transition-colors duration-300">
+                                        Stalls & Exhibition</h3>
+                                    <span
+                                        class="text-[12px] font-bold tracking-wider text-slate-400 group-hover:text-slate-600 transition-colors">Exhibition Services</span>
+                                </div>
+                            </div>
+                            <div class="md:w-1/2 flex flex-col md:items-end md:text-right">
+                                <p
+                                    class="mb-4 group-hover:text-slate-700 transition-colors font-semibold text-sm lg:text-base">
+                                    Innovative exhibition stall design, fabrication, and complete on-site management for lasting impressions.
+                                </p>
+                                <div
+                                    class="w-11 h-11 rounded-full border-2 border-slate-200 flex items-center justify-center group-hover:bg-brand group-hover:border-brand group-hover:text-white transition-all duration-500 shadow-sm">
+                                    <svg class="w-5 h-5 -rotate-45 group-hover:rotate-0 transition-transform duration-500 delay-100"
+                                        fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                            d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Service 3: Alumni & Academic Events -->
+                    <a href="alumni-academic-events.html" class="block group p-5 lg:p-6 border-2 border-transparent hover:border-slate-200 hover:bg-white rounded-[32px] cursor-pointer relative overflow-hidden transition-all duration-500 hover:shadow-xl hover:shadow-slate-200/50"
+                        @mouseenter="activeService = 2">
+                        <div class="relative z-10 flex flex-col md:flex-row md:items-start justify-between gap-4">
+                            <div class="flex gap-4 lg:gap-6 items-start w-full md:w-1/2">
+                                <span
+                                    class="text-sm font-bold text-slate-300 group-hover:text-brand transition-colors mt-2">03</span>
+                                <div>
+                                    <h3
+                                        class="text-2xl lg:text-3xl font-semibold text-slate-950 tracking-tighter mb-1 group-hover:text-brand transition-colors duration-300">
+                                        Alumni & Academic Events</h3>
+                                    <span
+                                        class="text-[12px] font-bold tracking-wider text-slate-400 group-hover:text-slate-600 transition-colors">Academic Events</span>
+                                </div>
+                            </div>
+                            <div class="md:w-1/2 flex flex-col md:items-end md:text-right">
+                                <p
+                                    class="mb-4 group-hover:text-slate-700 transition-colors font-semibold text-sm lg:text-base">
+                                    Memorable academic and alumni events that celebrate achievements and create lasting connections.</p>
+                                <div
+                                    class="w-11 h-11 rounded-full border-2 border-slate-200 flex items-center justify-center group-hover:bg-brand group-hover:border-brand group-hover:text-white transition-all duration-500 shadow-sm">
+                                    <svg class="w-5 h-5 -rotate-45 group-hover:rotate-0 transition-transform duration-500 delay-100"
+                                        fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                            d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <!-- Service 4: Protocol & Family Events -->
+                    <a href="protocol-family-events.html" class="block group p-5 lg:p-6 border-2 border-transparent hover:border-slate-200 hover:bg-white rounded-[32px] cursor-pointer relative overflow-hidden transition-all duration-500 hover:shadow-xl hover:shadow-slate-200/50"
+                        @mouseenter="activeService = 3">
+                        <div class="relative z-10 flex flex-col md:flex-row md:items-start justify-between gap-4">
+                            <div class="flex gap-4 lg:gap-6 items-start w-full md:w-1/2">
+                                <span
+                                    class="text-sm font-bold text-slate-300 group-hover:text-brand transition-colors mt-2">04</span>
+                                <div>
+                                    <h3
+                                        class="text-2xl lg:text-3xl font-semibold text-slate-950 tracking-tighter mb-1 group-hover:text-brand transition-colors duration-300">
+                                        Protocol & Family Events</h3>
+                                    <span
+                                        class="text-[12px] font-bold tracking-wider text-slate-400 group-hover:text-slate-600 transition-colors">Personalized Planning</span>
+                                </div>
+                            </div>
+                            <div class="md:w-1/2 flex flex-col md:items-end md:text-right">
+                                <p
+                                    class="mb-4 group-hover:text-slate-700 transition-colors font-semibold text-sm lg:text-base">
+                                    Elegant management of VIP protocol and cherished family celebrations with warmth.</p>
+                                <div
+                                    class="w-11 h-11 rounded-full border-2 border-slate-200 flex items-center justify-center group-hover:bg-brand group-hover:border-brand group-hover:text-white transition-all duration-500 shadow-sm">
+                                    <svg class="w-5 h-5 -rotate-45 group-hover:rotate-0 transition-transform duration-500 delay-100"
+                                        fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                            d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Service 5: Demand Generation -->
+                    <a href="integrated-demand-generation.html" class="block group p-5 lg:p-6 border-2 border-transparent hover:border-slate-200 hover:bg-white rounded-[32px] cursor-pointer relative overflow-hidden transition-all duration-500 hover:shadow-xl hover:shadow-slate-200/50"
+                        @mouseenter="activeService = 4">
+                        <div class="relative z-10 flex flex-col md:flex-row md:items-start justify-between gap-4">
+                            <div class="flex gap-4 lg:gap-6 items-start w-full md:w-1/2">
+                                <span
+                                    class="text-sm font-bold text-slate-300 group-hover:text-brand transition-colors mt-2">05</span>
+                                <div>
+                                    <h3
+                                        class="text-2xl lg:text-3xl font-semibold text-slate-950 tracking-tighter mb-1 group-hover:text-brand transition-colors duration-300">
+                                        Demand Generation</h3>
+                                    <span
+                                        class="text-[12px] font-bold tracking-wider text-slate-400 group-hover:text-slate-600 transition-colors">Growth Strategy</span>
+                                </div>
+                            </div>
+                            <div class="md:w-1/2 flex flex-col md:items-end md:text-right">
+                                <p
+                                    class="mb-4 group-hover:text-slate-700 transition-colors font-semibold text-sm lg:text-base">
+                                    Strategic demand generation solutions combining telecalling and targeted outreach.</p>
+                                <div
+                                    class="w-11 h-11 rounded-full border-2 border-slate-200 flex items-center justify-center group-hover:bg-brand group-hover:border-brand group-hover:text-white transition-all duration-500 shadow-sm">
+                                    <svg class="w-5 h-5 -rotate-45 group-hover:rotate-0 transition-transform duration-500 delay-100"
+                                        fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                            d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Service 6: Feasibility Study -->
+                    <a href="feasibility-study.html" class="block group p-5 lg:p-6 border-2 border-transparent hover:border-slate-200 hover:bg-white rounded-[32px] cursor-pointer relative overflow-hidden transition-all duration-500 hover:shadow-xl hover:shadow-slate-200/50"
+                        @mouseenter="activeService = 5">
+                        <div class="relative z-10 flex flex-col md:flex-row md:items-start justify-between gap-4">
+                            <div class="flex gap-4 lg:gap-6 items-start w-full md:w-1/2">
+                                <span
+                                    class="text-sm font-bold text-slate-300 group-hover:text-brand transition-colors mt-2">06</span>
+                                <div>
+                                    <h3
+                                        class="text-2xl lg:text-3xl font-semibold text-slate-950 tracking-tighter mb-1 group-hover:text-brand transition-colors duration-300">
+                                        Feasibility Study</h3>
+                                    <span
+                                        class="text-[12px] font-bold tracking-wider text-slate-400 group-hover:text-slate-600 transition-colors">Market Intelligence</span>
+                                </div>
+                            </div>
+                            <div class="md:w-1/2 flex flex-col md:items-end md:text-right">
+                                <p
+                                    class="mb-4 group-hover:text-slate-700 transition-colors font-semibold text-sm lg:text-base">
+                                    Data-backed intelligence to evaluate market potential and reduce investment risk.</p>
+                                <div
+                                    class="w-11 h-11 rounded-full border-2 border-slate-200 flex items-center justify-center group-hover:bg-brand group-hover:border-brand group-hover:text-white transition-all duration-500 shadow-sm">
+                                    <svg class="w-5 h-5 -rotate-45 group-hover:rotate-0 transition-transform duration-500 delay-100"
+                                        fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                            d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Service 7: Archiving & Record Management -->
+                    <a href="archiving-record-management.html" class="block group p-5 lg:p-6 border-2 border-transparent hover:border-slate-200 hover:bg-white rounded-[32px] cursor-pointer relative overflow-hidden transition-all duration-500 hover:shadow-xl hover:shadow-slate-200/50"
+                        @mouseenter="activeService = 6">
+                        <div class="relative z-10 flex flex-col md:flex-row md:items-start justify-between gap-4">
+                            <div class="flex gap-4 lg:gap-6 items-start w-full md:w-1/2">
+                                <span
+                                    class="text-sm font-bold text-slate-300 group-hover:text-brand transition-colors mt-2">07</span>
+                                <div>
+                                    <h3
+                                        class="text-2xl lg:text-3xl font-semibold text-slate-950 tracking-tighter mb-1 group-hover:text-brand transition-colors duration-300">
+                                        Archiving & Record Management</h3>
+                                    <span
+                                        class="text-[12px] font-bold tracking-wider text-slate-400 group-hover:text-slate-600 transition-colors">Efficient Storage</span>
+                                </div>
+                            </div>
+                            <div class="md:w-1/2 flex flex-col md:items-end md:text-right">
+                                <p
+                                    class="mb-4 group-hover:text-slate-700 transition-colors font-semibold text-sm lg:text-base">
+                                    Reliable archiving solutions to organize, protect, and manage critical documents.</p>
+                                <div
+                                    class="w-11 h-11 rounded-full border-2 border-slate-200 flex items-center justify-center group-hover:bg-brand group-hover:border-brand group-hover:text-white transition-all duration-500 shadow-sm">
+                                    <svg class="w-5 h-5 -rotate-45 group-hover:rotate-0 transition-transform duration-500 delay-100"
+                                        fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                            d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+
+                   
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!-- About Section -->
+<section id="about" class="py-32 bg-white relative overflow-hidden">
+    <!-- Background Image with Overlay -->
+    <div class="absolute inset-0 z-0 pointer-events-none">
+        <img src="images/about/about_bg.png" 
+             class="w-full h-full object-cover opacity-[0.15] grayscale">
+        <div class="absolute inset-0 bg-gradient-to-r from-white from-40% via-white/70 to-blue-900/30"></div>
+    </div>
+
+    <!-- Decoration -->
+    <div class="absolute top-0 right-0 w-[600px] h-[600px] bg-brand/5 rounded-full blur-3xl -mr-64 -mt-64 z-0 pointer-events-none"></div>
+
+    <div class="container mx-auto px-6 pl-16 relative z-10">
+        <div class="grid lg:grid-cols-12 gap-20 items-center">
+            <!-- Left: Asymmetric Imagery -->
+            <div class="lg:col-span-6 relative">
+                <div class="relative z-10 aspect-[4/5] rounded-[48px] overflow-hidden shadow-2xl">
+                    <img src="images/about/team_work.png" alt="Team Work"
+                        class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-brand/10 backdrop-blur-[1px]"></div>
+                </div>
+
+                <!-- Floating Overlap Image -->
+                <div
+                    class="absolute -bottom-12 -right-12 w-72 h-72 rounded-[40px] overflow-hidden border-[12px] border-white shadow-2xl z-20 hidden md:block group">
+                    <img src="images/about/collaboration.png"
+                        alt="Collaboration"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                    </div>
+                </div>
+
+                <!-- Experience Badge -->
+                <div
+                    class="absolute -top-12 -left-12 bg-brand p-10 rounded-[32px] shadow-2xl z-20 text-white transform -rotate-6 hover:rotate-0 transition-transform duration-500 cursor-default">
+                    <div class="font-black text-7xl leading-none">8+</div>
+                    <div class="text-[13px] font-bold tracking-wide mt-3 text-brand-100">Years of Excellence</div>
+                </div>
+            </div>
+
+            <!-- Right: Editorial Content -->
+            <div class="lg:col-span-6" x-data="{ active: 1 }">
+                <div class="flex items-center gap-4 mb-8">
+                    <div class="w-16 h-[2px] bg-brand"></div>
+                    <span class="text-[14px] font-bold tracking-wider text-brand">Excellence in Every Detail</span>
+                </div>
+                <h2 class="text-4xl md:text-6xl font-bold tracking-tight text-slate-900 leading-[0.9] mb-12 [word-spacing:0.15em]">
+                    Why Choose <br>
+                    <span class="inline-block text-transparent bg-clip-text bg-gradient-to-r from-brand to-blue-600 pr-6 pb-1">Crazy Boys Events</span>
+                </h2>
+
+                <div class="space-y-6">
+                    <!-- Accordion 1: Expertise -->
+                    <div class="group border-2 border-slate-300 rounded-[32px] p-2 transition-all duration-300"
+                        :class="active === 1 ? 'border-brand bg-brand/5' : 'bg-white'">
+                        <button @click="active = active === 1 ? null : 1"
+                            class="w-full flex items-center justify-between p-6 text-left focus:outline-none">
+                            <span class="text-xl font-bold transition-colors"
+                                :class="active === 1 ? 'text-brand' : 'text-slate-900'">Expertise and
+                                Experience</span>
+                            <div class="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300"
+                                :class="active === 1 ? 'bg-brand text-white rotate-90' : 'bg-slate-100 text-slate-400'">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3"
+                                    stroke="currentColor" class="w-5 h-5">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                                </svg>
+                            </div>
+                        </button>
+                        <div x-show="active === 1" x-collapse class="px-6 pb-8">
+                            <p>
+                                With years of experience in lead generation and corporate execution, we have honed
+                                our skills and strategies to perfection. Our team of experts stays up-to-date with
+                                the latest industry trends and best practices, ensuring that your campaigns are at
+                                the forefront of innovation.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Accordion 2: Customized Solutions -->
+                    <div class="group border-2 border-slate-300 rounded-[32px] p-2 transition-all duration-300"
+                        :class="active === 2 ? 'border-brand bg-brand/5' : 'bg-white'">
+                        <button @click="active = active === 2 ? null : 2"
+                            class="w-full flex items-center justify-between p-6 text-left focus:outline-none">
+                            <span class="text-xl font-bold transition-colors"
+                                :class="active === 2 ? 'text-brand' : 'text-slate-900'">Customized Solutions</span>
+                            <div class="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300"
+                                :class="active === 2 ? 'bg-brand text-white rotate-90' : 'bg-slate-100 text-slate-400'">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3"
+                                    stroke="currentColor" class="w-5 h-5">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                                </svg>
+                            </div>
+                        </button>
+                        <div x-show="active === 2" x-collapse class="px-6 pb-8">
+                            <p>
+                                We understand that every business is unique, and there is no one-size-fits-all
+                                approach to institutional growth. That's why we tailor our strategies and campaigns
+                                to meet your specific goals, target audience, and industry requirements. Our
+                                personalized solutions guarantee that you receive the most effective results.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Accordion 3: Transparency -->
+                    <div class="group border-2 border-slate-300 rounded-[32px] p-2 transition-all duration-300"
+                        :class="active === 3 ? 'border-brand bg-brand/5' : 'bg-white'">
+                        <button @click="active = active === 3 ? null : 3"
+                            class="w-full flex items-center justify-between p-6 text-left focus:outline-none">
+                            <span class="text-xl font-bold transition-colors"
+                                :class="active === 3 ? 'text-brand' : 'text-slate-900'">Transparency and
+                                Collaboration</span>
+                            <div class="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300"
+                                :class="active === 3 ? 'bg-brand text-white rotate-90' : 'bg-slate-100 text-slate-400'">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3"
+                                    stroke="currentColor" class="w-5 h-5">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                                </svg>
+                            </div>
+                        </button>
+                        <div x-show="active === 3" x-collapse class="px-6 pb-8">
+                            <p>
+                                We believe in open and transparent communication with our clients. Throughout the
+                                entire process, we maintain constant collaboration, providing regular progress
+                                updates and performance reports. We value your input and welcome your feedback to
+                                ensure that our efforts align with your vision and objectives.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Projects Section -->
+<section id="projects" class="py-32 bg-slate-50 relative overflow-hidden">
+    <div class="container mx-auto px-6 pl-16 mb-20">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-10">
+            <div class="max-w-2xl">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-10 h-[2px] bg-orange-500"></div>
+                    <span class="text-[14px] font-bold tracking-wider text-brand">Success Stories</span>
+                </div>
+                <h2 class="text-4xl md:text-6xl font-bold tracking-tight text-slate-900 leading-[1.1] [word-spacing:0.15em]">
+                    Glimpses of <span class="text-brand">Institutional</span> Excellence
+                </h2>
+            </div>
+            <div class="flex flex-col items-start md:items-end">
+                <p class="text-slate-500 text-[18px] leading-relaxed mb-6 max-w-sm md:text-right">
+                    A curated selection of our most impactful projects delivered across various domains.
+                </p>
+                <a href="#" class="group inline-flex items-center gap-3 font-bold text-brand">
+                    Explore Full Portfolio
+                    <div
+                        class="w-10 h-10 rounded-full border border-brand/20 flex items-center justify-center group-hover:bg-brand group-hover:text-white transition-all">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5"
+                            stroke="currentColor" class="w-4 h-4">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                        </svg>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mx-auto px-6 pl-16">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+            <!-- Project 1 (Large) -->
+            <div class="md:col-span-7 group cursor-pointer">
+                <div class="relative aspect-[16/10] rounded-[40px] overflow-hidden mb-6 shadow-xl">
+                    <img src="images/home/project_gala.png"
+                        alt="Corporate Gala"
+                        class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity">
+                    </div>
+                    <div class="absolute top-8 left-8">
+                        <span
+                            class="px-5 py-2 bg-white/90 backdrop-blur-md text-brand text-[12px] font-bold rounded-full tracking-tight shadow-lg">Premium
+                            Event</span>
+                    </div>
+                    <div class="absolute bottom-8 left-8 right-8">
+                        <h3 class="text-white text-3xl font-bold mb-2">Strategic Corporate Gala</h3>
+                        
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 2 (Tall) -->
+            <div class="md:col-span-5 group cursor-pointer">
+                <div class="relative h-full aspect-[1/1] md:aspect-auto rounded-[40px] overflow-hidden shadow-xl">
+                    <img src="images/home/project_anniversary.png" alt="Anniversary"
+                        class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-emerald-900/80 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity">
+                    </div>
+                    <div class="absolute top-8 left-8">
+                        <span
+                            class="px-5 py-2 bg-white/90 backdrop-blur-md text-emerald-600 text-[10px] font-black rounded-full uppercase tracking-widest shadow-lg">Celebration</span>
+                    </div>
+                    <div class="absolute bottom-8 left-8 right-8">
+                        <h3 class="text-white text-3xl font-bold mb-2">Silver Jubilee Feast</h3>
+                         
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="md:col-span-5 group cursor-pointer">
+                <div class="relative aspect-[4/3] rounded-[40px] overflow-hidden mb-6 shadow-xl">
+                    <img src="images/home/project_wellness.png" alt="Wellness"
+                        class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-orange-900/80 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity">
+                    </div>
+                    <div class="absolute bottom-8 left-8 right-8">
+                        <h3 class="text-white text-2xl font-bold">Executive Wellness Retreat</h3>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 4 -->
+            <div class="md:col-span-7 group cursor-pointer">
+                <div class="relative aspect-[16/8] rounded-[40px] overflow-hidden shadow-xl">
+                    <img src="images/home/project_culture.png" alt="Culture"
+                        class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-pink-900/80 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity">
+                    </div>
+                    <div class="absolute bottom-8 left-8 right-8">
+                        <h3 class="text-white text-2xl font-bold">Cultural Harmony Meet</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Metrics Showcase -->
+<section class="py-20 md:py-32 relative overflow-hidden bg-slate-950">
+    <!-- Decoration -->
+    <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10">
+    </div>
+    <div class="absolute -top-48 -left-48 w-[600px] h-[600px] bg-brand/20 rounded-full blur-[120px]"></div>
+    <div class="absolute -bottom-48 -right-48 w-[500px] h-[500px] bg-emerald-500/10 rounded-full blur-[100px]">
+    </div>
+
+    <div class="container mx-auto px-6 pl-16 relative z-10">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-y-16 sm:gap-y-24 lg:gap-0">
+            <!-- Metric 1 -->
+            <div class="text-center lg:border-r border-white/5 px-8 group">
+                <div class="text-brand text-[13px] font-black uppercase tracking-[0.3em] mb-6 group-hover:text-white transition-colors duration-500">
+                    Operations</div>
+                <div class="text-white text-7xl md:text-8xl font-bold mb-6 tracking-tighter transition-transform duration-700 group-hover:scale-110">8+</div>
+                <div class="text-slate-400 font-bold text-[16px] leading-relaxed max-w-[200px] mx-auto tracking-wide">
+                    Years of Excellence</div>
+            </div>
+
+            <!-- Metric 2 -->
+            <div class="text-center lg:border-r border-white/5 px-8 group sm:border-l sm:border-white/5 lg:border-l-0">
+                <div class="text-emerald-500 text-[13px] font-black uppercase tracking-[0.3em] mb-6 group-hover:text-white transition-colors duration-500">
+                    Experience</div>
+                <div class="text-white text-7xl md:text-8xl font-bold mb-6 tracking-tighter transition-transform duration-700 group-hover:scale-110">500+</div>
+                <div class="text-slate-400 font-bold text-[16px] leading-relaxed max-w-[200px] mx-auto tracking-wide">
+                    Events Delivered</div>
+            </div>
+
+            <!-- Metric 3 -->
+            <div class="text-center lg:border-r border-white/5 px-8 group lg:border-l-0">
+                <div class="text-blue-400 text-[13px] font-black uppercase tracking-[0.3em] mb-6 group-hover:text-white transition-colors duration-500">
+                    Precision</div>
+                <div class="text-white text-7xl md:text-8xl font-bold mb-6 tracking-tighter transition-transform duration-700 group-hover:scale-110">20+</div>
+                <div class="text-slate-400 font-bold text-[16px] leading-relaxed max-w-[200px] mx-auto tracking-wide">
+                    States Reached</div>
+            </div>
+
+            <!-- Metric 4 -->
+            <div class="text-center px-8 group sm:border-l sm:border-white/5 lg:border-l-0">
+                <div class="text-pink-500 text-[13px] font-black uppercase tracking-[0.3em] mb-6 group-hover:text-white transition-colors duration-500">
+                    Success</div>
+                <div class="text-white text-7xl md:text-8xl font-bold mb-6 tracking-tighter transition-transform duration-700 group-hover:scale-110">100%</div>
+                <div class="text-slate-400 font-bold text-[16px] leading-relaxed max-w-[200px] mx-auto tracking-wide">
+                    Client Satisfaction</div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Why Crazy Boys Section -->
+<section class="py-32 bg-white relative overflow-hidden">
+    <div class="container mx-auto px-6 pl-16 mb-20">
+        <div class="max-w-2xl mx-auto text-center">
+            <div class="flex items-center justify-center gap-4 mb-6">
+                <div class="w-8 h-[2px] bg-brand"></div>
+                <span class="text-[14px] font-bold tracking-wider text-brand">The Crazy Boys Edge</span>
+                <div class="w-8 h-[2px] bg-brand"></div>
+            </div>
+            <h2 class="text-4xl md:text-6xl font-bold tracking-tighter text-slate-900 leading-[0.95]">
+                Why Institutions <br> <span class="text-brand">Trust Us</span>
+            </h2>
+        </div>
+    </div>
+
+    <div class="container mx-auto px-6 pl-16 grid lg:grid-cols-3 gap-12">
+        <!-- Reason 1 -->
+        <div
+            class="group relative p-12 rounded-[48px] bg-white border-2 border-slate-300 hover:bg-brand transition-all duration-500 overflow-hidden">
+            <div
+                class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.03] pointer-events-none">
+            </div>
+            <div
+                class="absolute -top-10 -right-10 text-black/5 text-[180px] font-black group-hover:text-white/10 transition-colors">
+                01</div>
+            <div class="relative z-10">
+                <div
+                    class="w-16 h-16 bg-slate-50 rounded-2xl flex items-center justify-center text-brand mb-10 shadow-xl group-hover:scale-110 transition-transform">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                        stroke="currentColor" class="w-8 h-8">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0-2.062.18 3 .512v14.25A8.987 8.987 0 0018 18c-2.331 0-4.408.867-6 2.292m0-14.25V20.25" />
+                    </svg>
+                </div>
+                <h3 class="text-2xl font-bold mb-6 group-hover:text-white transition-colors">Decade of Mastery</h3>
+                <p class="text-slate-500 group-hover:text-white/80 transition-colors leading-relaxed">Curating
+                    high-stakes corporate environments since 2018 with surgical precision and creative flair.</p>
+            </div>
+        </div>
+        <!-- Reason 2 -->
+        <div
+            class="group relative p-12 rounded-[48px] bg-white border-2 border-slate-300 hover:bg-brand transition-all duration-500 overflow-hidden">
+            <div
+                class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.03] pointer-events-none">
+            </div>
+            <div
+                class="absolute -top-10 -right-10 text-black/5 text-[180px] font-black group-hover:text-white/10 transition-colors">
+                02</div>
+            <div class="relative z-10">
+                <div
+                    class="w-16 h-16 bg-slate-50 rounded-2xl flex items-center justify-center text-brand mb-10 shadow-xl group-hover:scale-110 transition-transform">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                        stroke="currentColor" class="w-8 h-8">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z" />
+                    </svg>
+                </div>
+                <h3 class="text-2xl font-bold mb-6 group-hover:text-white transition-colors">Bespoke Engineering
+                </h3>
+                <p class="text-slate-500 group-hover:text-white/80 transition-colors leading-relaxed">No
+                    cookie-cutter templates. Every solution is custom-architected for your institutional DNA.</p>
+            </div>
+        </div>
+        <!-- Reason 3 -->
+        <div
+            class="group relative p-12 rounded-[48px] bg-white border-2 border-slate-300 hover:bg-brand transition-all duration-500 overflow-hidden">
+            <div
+                class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.03] pointer-events-none">
+            </div>
+            <div
+                class="absolute -top-10 -right-10 text-black/5 text-[180px] font-black group-hover:text-white/10 transition-colors">
+                03</div>
+            <div class="relative z-10">
+                <div
+                    class="w-16 h-16 bg-slate-50 rounded-2xl flex items-center justify-center text-brand mb-10 shadow-xl group-hover:scale-110 transition-transform">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                        stroke="currentColor" class="w-8 h-8">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" />
+                    </svg>
+                </div>
+                <h3 class="text-2xl font-bold mb-6 group-hover:text-white transition-colors">Total Transparency</h3>
+                <p class="text-slate-500 group-hover:text-white/80 transition-colors leading-relaxed">Real-time
+                    reporting and dedicated project leads ensure zero surprises on delivery day.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials Section -->
+<section id="testimonials" class="py-32 bg-white relative overflow-hidden" x-data="{ page: 0 }">
+    <!-- Background Image with Overlay -->
+    <div class="absolute inset-0 z-0 pointer-events-none">
+        <img src="images/shared/testimonials_bg.png" 
+             class="w-full h-full object-cover opacity-[0.15] grayscale">
+        <div class="absolute inset-0 bg-gradient-to-b from-white/95 via-white/50 to-white/95"></div>
+    </div>
+
+    <div class="container mx-auto px-6 relative z-10">
+        <!-- Centered Header -->
+        <div class="max-w-4xl mx-auto text-center mb-20">
+            <div class="flex items-center justify-center gap-4 mb-6">
+                <div class="w-8 h-[2px] bg-brand"></div>
+                <span class="text-[14px] font-bold tracking-wider text-brand">Institutional Trust</span>
+                <div class="w-8 h-[2px] bg-brand"></div>
+            </div>
+            <h2 class="text-4xl md:text-6xl font-bold tracking-tighter text-slate-950 leading-[0.95] mb-8">
+                Partner <span class="text-brand">Voices</span>
+            </h2>
+            <p class="text-slate-500 text-[18px] leading-relaxed max-w-2xl mx-auto">
+                We don't just work for brands; we grow with them. Here's what our institutional partners have to say
+                about the Crazy Boys strategic experience.
+            </p>
+
+            <!-- Navigation Buttons (Centered) -->
+            <div class="flex justify-center gap-4 mt-12">
+                <button @click="page = 0"
+                    :class="page === 0 ? 'bg-slate-50 text-slate-300' : 'bg-white text-slate-950 border-slate-200 hover:border-brand hover:text-brand shadow-lg shadow-slate-200/50'"
+                    class="px-8 py-4 rounded-full font-black text-[10px] uppercase tracking-widest border-2 transition-all flex items-center gap-3 group">
+                    <svg class="w-4 h-4 transition-transform group-hover:-translate-x-1" fill="none"
+                        stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
+                            d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+                    </svg>
+                    Previous
+                </button>
+                <button @click="page = 1"
+                    :class="page === 1 ? 'bg-slate-50 text-slate-300' : 'bg-white text-slate-950 border-slate-200 hover:border-brand hover:text-brand shadow-lg shadow-slate-200/50'"
+                    class="px-8 py-4 rounded-full font-black text-[10px] uppercase tracking-widest border-2 transition-all flex items-center gap-3 group">
+                    Next
+                    <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none"
+                        stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
+                            d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Testimonials Display -->
+        <div class="relative min-h-[500px]">
+            <!-- Page 0: First Two -->
+            <div class="grid md:grid-cols-2 gap-10" x-show="page === 0"
+                x-transition:enter="transition ease-out duration-700"
+                x-transition:enter-start="opacity-0 translate-y-12" x-transition:enter-end="opacity-100 translate-y-0"
+                x-transition:leave="transition ease-in duration-500 absolute inset-0"
+                x-transition:leave-start="opacity-100 translate-y-0" x-transition:leave-end="opacity-0 -translate-y-12">
+
+                <!-- Testimonial 1 -->
+                <div
+                    class="bg-[#FBFBFE] p-12 rounded-[48px] border-2 border-slate-300 relative group hover:border-brand/30 transition-all duration-500 shadow-sm hover:shadow-2xl hover:shadow-slate-200/50">
+                    <div
+                        class="w-14 h-14 bg-brand rounded-2xl flex items-center justify-center text-white mb-10 shadow-xl shadow-brand/20">
+                        <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M14.017 21L14.017 18C14.017 16.8954 14.9124 16 16.017 16H19.017C19.5693 16 20.017 15.5523 20.017 15V9C20.017 8.44772 19.5693 8 19.017 8H16.017C14.9124 8 14.017 7.10457 14.017 6V3L22.017 3V15C22.017 18.3137 19.3307 21 16.017 21H14.017ZM2.01697 21L2.01697 18C2.01697 16.8954 2.9124 16 4.01697 16H7.01697C7.56925 16 8.01697 15.5523 8.01697 15V9C8.01697 8.44772 7.56925 8 7.01697 8H4.01697C2.9124 8 2.01697 7.10457 2.01697 6V3L10.017 3V15C10.017 18.3137 7.3307 21 4.01697 21H2.01697Z" />
+                        </svg>
+                    </div>
+                    <p class="text-slate-600 text-[18px] leading-relaxed mb-12 italic font-medium">
+                        "I have had the pleasure of collaborating with Crazy Boys Events and Marketing Services on projects
+                        spanning events management, lead generation, and digital document digitization. Their exemplary
+                        performance exceeded my expectations, requiring minimal intervention on my part."
+                    </p>
+                    <div class="flex items-center gap-5 pt-8 border-t border-slate-200">
+                        <div class="w-12 h-12 rounded-full overflow-hidden border-2 border-white shadow-sm">
+                            <img src="images/testimonials/Surya.png" alt="Surya" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-black text-slate-950 text-base leading-none mb-1">Surya</h4>
+                            <p class="text-[12px] font-bold text-brand tracking-wide">Manager |
+                                Penna</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div
+                    class="bg-[#FBFBFE] p-12 rounded-[48px] border-2 border-slate-300 relative group hover:border-brand/30 transition-all duration-500 shadow-sm hover:shadow-2xl hover:shadow-slate-200/50">
+                    <div
+                        class="w-14 h-14 bg-brand rounded-2xl flex items-center justify-center text-white mb-10 shadow-xl shadow-brand/20">
+                        <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M14.017 21L14.017 18C14.017 16.8954 14.9124 16 16.017 16H19.017C19.5693 16 20.017 15.5523 20.017 15V9C20.017 8.44772 19.5693 8 19.017 8H16.017C14.9124 8 14.017 7.10457 14.017 6V3L22.017 3V15C22.017 18.3137 19.3307 21 16.017 21H14.017ZM2.01697 21L2.01697 18C2.01697 16.8954 2.9124 16 4.01697 16H7.01697C7.56925 16 8.01697 15.5523 8.01697 15V9C8.01697 8.44772 7.56925 8 7.01697 8H4.01697C2.9124 8 2.01697 7.10457 2.01697 6V3L10.017 3V15C10.017 18.3137 7.3307 21 4.01697 21H2.01697Z" />
+                        </svg>
+                    </div>
+                    <p class="text-slate-600 text-[18px] leading-relaxed mb-12 italic font-medium">
+                        "Working with Crazy Boys Events has been an absolute pleasure for Quality Health. Their seamless
+                        coordination, attention to detail, and innovative solutions have truly elevated our events,
+                        ensuring each launch and show is a resounding success."
+                    </p>
+                    <div class="flex items-center gap-5 pt-8 border-t border-slate-200">
+                        <div class="w-12 h-12 rounded-full overflow-hidden border-2 border-white shadow-sm">
+                            <img src="images/testimonials/venkatanathan.png" alt="Venkatanathan" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-black text-slate-950 text-base leading-none mb-1">Mithra</h4>
+                            <p class="text-[12px] font-bold text-brand tracking-wide">Sathya |
+                                IT Engineering Lead</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Page 1: Next Two -->
+            <div class="grid md:grid-cols-2 gap-10" x-show="page === 1"
+                x-transition:enter="transition ease-out duration-700"
+                x-transition:enter-start="opacity-0 translate-y-12" x-transition:enter-end="opacity-100 translate-y-0"
+                x-transition:leave="transition ease-in duration-500 absolute inset-0"
+                x-transition:leave-start="opacity-100 translate-y-0" x-transition:leave-end="opacity-0 -translate-y-12">
+
+                <!-- Testimonial 3 -->
+                <div
+                    class="bg-[#FBFBFE] p-12 rounded-[48px] border-2 border-slate-300 relative group hover:border-brand/30 transition-all duration-500 shadow-sm hover:shadow-2xl hover:shadow-slate-200/50">
+                    <div
+                        class="w-14 h-14 bg-brand rounded-2xl flex items-center justify-center text-white mb-10 shadow-xl shadow-brand/20">
+                        <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M14.017 21L14.017 18C14.017 16.8954 14.9124 16 16.017 16H19.017C19.5693 16 20.017 15.5523 20.017 15V9C20.017 8.44772 19.5693 8 19.017 8H16.017C14.9124 8 14.017 7.10457 14.017 6V3L22.017 3V15C22.017 18.3137 19.3307 21 16.017 21H14.017ZM2.01697 21L2.01697 18C2.01697 16.8954 2.9124 16 4.01697 16H7.01697C7.56925 16 8.01697 15.5523 8.01697 15V9C8.01697 8.44772 7.56925 8 7.01697 8H4.01697C2.9124 8 2.01697 7.10457 2.01697 6V3L10.017 3V15C10.017 18.3137 7.3307 21 4.01697 21H2.01697Z" />
+                        </svg>
+                    </div>
+                    <p class="text-slate-600 text-[18px] leading-relaxed mb-12 italic font-medium">
+                        "Working alongside Crazy Boys Events and Marketing Services has been an absolute delight! Their
+                        team’s genuine passion for what they do shines through in every aspect of our collaboration."
+                    </p>
+                    <div class="flex items-center gap-5 pt-8 border-t border-slate-200">
+                        <div class="w-12 h-12 rounded-full overflow-hidden border-2 border-white shadow-sm">
+                            <img src="images/testimonials/baskar.png" alt="Baskar G" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-black text-slate-950 text-base leading-none mb-1">Baskar G</h4>
+                            <p class="text-[12px] font-bold text-brand tracking-wide">Admin | Dvara KGFS
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 4 -->
+                <div
+                    class="bg-[#FBFBFE] p-12 rounded-[48px] border-2 border-slate-300 relative group hover:border-brand/30 transition-all duration-500 shadow-sm hover:shadow-2xl hover:shadow-slate-200/50">
+                    <div
+                        class="w-14 h-14 bg-brand rounded-2xl flex items-center justify-center text-white mb-10 shadow-xl shadow-brand/20">
+                        <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M14.017 21L14.017 18C14.017 16.8954 14.9124 16 16.017 16H19.017C19.5693 16 20.017 15.5523 20.017 15V9C20.017 8.44772 19.5693 8 19.017 8H16.017C14.9124 8 14.017 7.10457 14.017 6V3L22.017 3V15C22.017 18.3137 19.3307 21 16.017 21H14.017ZM2.01697 21L2.01697 18C2.01697 16.8954 2.9124 16 4.01697 16H7.01697C7.56925 16 8.01697 15.5523 8.01697 15V9C8.01697 8.44772 7.56925 8 7.01697 8H4.01697C2.9124 8 2.01697 7.10457 2.01697 6V3L10.017 3V15C10.017 18.3137 7.3307 21 4.01697 21H2.01697Z" />
+                        </svg>
+                    </div>
+                    <p class="text-slate-600 text-[18px] leading-relaxed mb-12 italic font-medium">
+                        "I couldn't be more impressed with the exceptional services provided by Crazy Boys Events. Their
+                        expertise in managing corporate events is unparalleled – from planning to flawless execution."
+                    </p>
+                    <div class="flex items-center gap-5 pt-8 border-t border-slate-200">
+                        <div class="w-12 h-12 rounded-full overflow-hidden border-2 border-white shadow-sm">
+                            <img src="images/testimonials/ashish-joy.png" alt="Ashish Joy" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-black text-slate-950 text-base leading-none mb-1">Sathyamithra</h4>
+                            <p class="text-[12px] font-bold text-brand tracking-wide">Marketing Manager |
+                                Redington</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Cinematic CTA -->
+<section id="contact" class="py-32 bg-slate-50">
+    <div class="container mx-auto px-6">
+        <div class="bg-slate-950 rounded-[60px] p-12 lg:p-24 text-center relative overflow-hidden group">
+            <!-- Background FX -->
+            <div
+                class="absolute inset-0 bg-gradient-to-br from-brand/30 via-transparent to-pink-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-1000">
+            </div>
+            <div
+                class="absolute top-0 left-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10">
+            </div>
+            <div class="absolute -top-48 -left-48 w-96 h-96 bg-brand/40 rounded-full blur-[100px] animate-pulse">
+            </div>
+            <div
+                class="absolute -bottom-48 -right-48 w-96 h-96 bg-emerald-500/30 rounded-full blur-[100px] animate-pulse delay-700">
+            </div>
+
+            <div class="relative z-10 max-w-3xl mx-auto">
+                <h2 class="text-4xl md:text-6xl font-bold tracking-tight text-white leading-tight mb-8 [word-spacing:0.15em]">
+                    Let's build your <br>
+                    <span class="inline-block text-transparent bg-clip-text bg-gradient-to-r from-brand via-blue to-emerald-400 pr-6 pb-1">next great legacy</span>
+                </h2>
+                <p class="text-slate-400 mb-14">
+                    From visionary concept to flawless execution. Our experts are ready to engineer your most
+                    successful project yet.
+                </p>
+                <div class="flex flex-wrap justify-center gap-6">
+                    <a href="mailto:sathyamithra.m@gmail.com"
+                        class="px-10 py-5 bg-white text-slate-950 font-black rounded-full hover:scale-105 active:scale-95 transition-all shadow-2xl shadow-white/10 text-lg">Book
+                        a Consultation</a>
+                    <a href="tel:+919876543210"
+                        class="px-10 py-5 border-2 border-white/20 text-white font-black rounded-full hover:bg-white/10 transition-all text-lg flex items-center gap-3 group/phone">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                            stroke="currentColor" class="w-6 h-6 group-hover/phone:animate-bounce">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H3.625A2.25 2.25 0 001.375 4.5v2.25z" />
+                        </svg>
+                        Talk to Our Experts
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+        </main>
+
+        <!-- Minimalist Luxe Footer -->
+<footer class="bg-slate-950 pt-12 pb-8 relative overflow-hidden">
+    <!-- Subtle Geometric Decoration -->
+    <div
+        class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-brand/5 to-transparent skew-x-12 translate-x-1/4">
+    </div>
+
+    <div class="container mx-auto px-6 relative z-10">
+        <div class="grid lg:grid-cols-12 gap-8 lg:gap-12 mb-8">
+            <!-- Brand Editorial -->
+            <div class="lg:col-span-4 relative group">
+                <!-- Subtle Logo Glow -->
+                <div
+                    class="absolute -top-10 -left-10 w-40 h-40 bg-brand/20 blur-[60px] rounded-full pointer-events-none transition-opacity duration-700 opacity-50 group-hover:opacity-100">
+                </div>
+
+                <div class="flex items-center mb-6 relative z-10">
+                    <a href="index.html">
+                        <img src="images/logo/logo.png" alt="Crazy Boys Events Logo" class="h-20 w-auto object-contain">
+                    </a>
+                </div>
+                <p class="text-slate-400 text-[18px] max-w-sm font-light mb-6">
+                    Redefining the architecture of corporate events and institutional excellence. We bridge the gap
+                    between vision and execution with unmatched precision.
+                </p>
+                <div class="flex items-center gap-10">
+                    <div class="flex flex-col">
+                        <span class="text-3xl font-bold text-white leading-none mb-1">Pan India</span>
+                        <span class="text-[13px] font-bold text-slate-500 tracking-widest uppercase">Operations</span>
+                    </div>
+                    <div class="w-px h-12 bg-white/10"></div>
+                    <div class="flex flex-col">
+                        <span class="text-3xl font-bold text-white leading-none mb-1">Elite</span>
+                        <span class="text-[13px] font-bold text-slate-500 tracking-widest uppercase">Standards</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Navigation Hub -->
+            <div class="lg:col-span-2">
+                <h5 class="text-[18px] font-bold text-brand tracking-widest uppercase mb-4">Company</h5>
+                <ul class="space-y-4">
+                    <template x-for="link in ['Home', 'About', 'Contact']" :key="link">
+                        <li>
+                            <a :href="link === 'Home' ? 'index.html' : link.toLowerCase() + '.html'"
+                                class="text-[18px] font-medium text-slate-400 hover:text-white transition-all hover:translate-x-2 inline-block tracking-wide"
+                                x-text="link"></a>
+                        </li>
+                    </template>
+                </ul>
+            </div>
+
+            <!-- Services Hub -->
+            <div class="lg:col-span-2">
+                <h5 class="text-[18px] font-bold text-brand tracking-widest uppercase mb-4">Services</h5>
+                <ul class="space-y-4">
+                    <li><a href="corporate-events.html"
+                            class="text-[18px] font-medium text-slate-400 hover:text-white transition-all hover:translate-x-2 inline-block tracking-wide">Corporate Events</a>
+                    </li>
+                    <li><a href="stalls-exhibition.html"
+                            class="text-[18px] font-medium text-slate-400 hover:text-white transition-all hover:translate-x-2 inline-block tracking-wide">Stalls & Exhibition</a></li>
+                    <li><a href="alumni-academic-events.html"
+                            class="text-[18px] font-medium text-slate-400 hover:text-white transition-all hover:translate-x-2 inline-block tracking-wide">Alumni & Academic Events</a></li>
+                    <li><a href="protocol-family-events.html"
+                            class="text-[18px] font-medium text-slate-400 hover:text-white transition-all hover:translate-x-2 inline-block tracking-wide">Protocol & Family Events</a></li>
+                    <li><a href="integrated-demand-generation.html"
+                            class="text-[18px] font-medium text-slate-400 hover:text-white transition-all hover:translate-x-2 inline-block tracking-wide">Demand Generation</a></li>
+                    <li><a href="feasibility-study.html"
+                            class="text-[18px] font-medium text-slate-400 hover:text-white transition-all hover:translate-x-2 inline-block tracking-wide">Feasibility
+                            Study</a></li>
+                    <li><a href="archiving-record-management.html"
+                            class="text-[18px] font-medium text-slate-400 hover:text-white transition-all hover:translate-x-2 inline-block tracking-wide">Archiving & Record Mgmt</a></li>
+                </ul>
+            </div>
+
+            <!-- Connect Section -->
+            <div class="lg:col-span-4">
+                <h5 class="text-[18px] font-bold text-brand tracking-widest uppercase mb-4">Strategic Inquiry</h5>
+                <div
+                    class="bg-white/[0.03] border border-white/5 p-8 lg:p-10 rounded-3xl group hover:bg-white/[0.05] hover:border-brand/30 transition-all duration-500 relative overflow-hidden">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-br from-brand/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    </div>
+                    <div class="relative z-10">
+                        <h4 class="text-2xl xl:text-3xl font-bold text-white mb-4 leading-tight tracking-tight">Ready to
+                            engineer your next legacy?</h4>
+                        <p class="text-slate-400 mb-4 font-medium text-[18px]">Join 500+ institutional leaders receiving
+                            our exclusive quarterly insights.</p>
+                        <form class="flex flex-col gap-4">
+                            <div class="relative">
+                                <input type="email" placeholder="Professional Email"
+                                    class="w-full bg-slate-900/50 border border-white/10 rounded-2xl py-4 px-6 text-white placeholder-slate-500 focus:border-brand focus:ring-1 focus:ring-brand transition-all outline-none text-[15px]">
+                            </div>
+                            <button class="btn-white w-full !rounded-2xl !px-8 !py-4">
+                                Subscribe to Insights
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Legal & Signature -->
+        <div class="pt-6 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-8">
+                <span class="text-slate-600 text-[13px] font-bold tracking-tight">© 2026 Crazy Boys Events</span>
+                <div class="w-1.5 h-1.5 rounded-full bg-slate-800"></div>
+                <a href="#"
+                    class="text-slate-600 hover:text-white text-[13px] font-bold tracking-tight transition-colors">Privacy
+                    Policy</a>
+                <a href="#"
+                    class="text-slate-600 hover:text-white text-[13px] font-bold tracking-tight transition-colors">Terms
+                    of Service</a>
+            </div>
+
+            <!-- Social Hub -->
+            <div class="flex items-center gap-4">
+                <!-- Facebook -->
+                <a href="https://www.facebook.com/Crazy Boys eventmanagementchennai/" target="_blank"
+                    class="w-10 h-10 rounded-xl bg-white/5 border border-white/5 flex items-center justify-center text-slate-400 hover:bg-[#1877F2] hover:text-white hover:border-[#1877F2] transition-all duration-300 group">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                        <path
+                            d="M9 8H6v4h3v12h5V12h3.642L18 8h-4V6.333C14 5.378 14.792 5 15.536 5H18V0h-3.977C10.038 0 9 2.29 9 5.633V8z" />
+                    </svg>
+                </a>
+
+                <!-- X (Twitter) -->
+                <a href="https://www.facebook.com/Crazy Boys eventmanagementchennai/" target="_blank"
+                    class="w-10 h-10 rounded-xl bg-white/5 border border-white/5 flex items-center justify-center text-slate-400 hover:bg-black hover:text-white hover:border-black transition-all duration-300 group">
+                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                        <path
+                            d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                    </svg>
+                </a>
+
+                <!-- LinkedIn -->
+                <a href="https://www.linkedin.com/company/Crazy Boys -events-management-company-chennai/about/"
+                    target="_blank"
+                    class="w-10 h-10 rounded-xl bg-white/5 border border-white/5 flex items-center justify-center text-slate-400 hover:bg-[#0A66C2] hover:text-white hover:border-[#0A66C2] transition-all duration-300 group">
+                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                        <path
+                            d="M22.23 0H1.77C.8 0 0 .77 0 1.72v20.56C0 23.23.8 24 1.77 24h20.46c.98 0 1.77-.77 1.77-1.72V1.72C24 .77 23.2 0 22.23 0zM7.12 20.45H3.56V9h3.56v11.45zM5.34 7.58c-1.14 0-2.06-.93-2.06-2.06 0-1.14.92-2.06 2.06-2.06 1.14 0 2.06-.93 2.06-2.06 0-1.13-.92 2.06-2.06 2.06zM20.45 20.45h-3.56v-5.6c0-1.34-.03-3.06-1.87-3.06-1.87 0-2.15 1.46-2.15 2.96v5.7h-3.56V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29z" />
+                    </svg>
+                </a>
+
+                <!-- Instagram -->
+                <a href="https://www.instagram.com/Crazy Boys eventschennai/" target="_blank"
+                    class="w-10 h-10 rounded-xl bg-white/5 border border-white/5 flex items-center justify-center text-slate-400 hover:bg-gradient-to-tr from-[#FFB000] via-[#FF0069] to-[#AD00FF] hover:text-white hover:border-transparent transition-all duration-300 group">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                        <path
+                            d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.981 1.28.058 1.688.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+        <div class="mt-8 pt-8 border-t border-white/5 text-center">
+            <p class="text-slate-600 text-[12px] font-medium tracking-wider uppercase">
+                Website Designed by: 
+                <a href="https://www.valaidesigns.com/services/local-business-website/" target="_blank" class="text-slate-400 hover:text-brand transition-colors">Valai Designs</a>
+            </p>
+        </div>
+    </div>
+</footer>
+
+            <!-- Scroll to Top Button -->
+<div x-data="{ 
+        show: false,
+        scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+     }"
+     x-init="window.addEventListener('scroll', () => { show = window.pageYOffset > 500 })"
+     class="fixed bottom-28 right-8 z-[90]">
+    
+    <button x-cloak x-show="show"
+            x-transition:enter="transition ease-out duration-300"
+            x-transition:enter-start="opacity-0 translate-y-10 scale-90"
+            x-transition:enter-end="opacity-100 translate-y-0 scale-100"
+            x-transition:leave="transition ease-in duration-200"
+            x-transition:leave-start="opacity-100 translate-y-0 scale-100"
+            x-transition:leave-end="opacity-0 translate-y-10 scale-90"
+            @click="scrollToTop()"
+            class="group relative flex items-center justify-center w-12 h-12 transition-all duration-300 active:scale-95 focus:outline-none">
+        
+        <!-- Dashed Outer Ring -->
+        <div class="absolute inset-0 rounded-full border-2 border-dashed border-purple-600/50 group-hover:border-purple-600 group-hover:rotate-45 transition-all duration-500"></div>
+        
+        <!-- Inner Purple Circle -->
+        <div class="w-10 h-10 bg-purple-600 text-white rounded-full flex items-center justify-center shadow-lg group-hover:bg-purple-700 transition-colors">
+            <svg class="w-5 h-5 transform group-hover:-translate-y-1 transition-transform duration-300" 
+                 fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 15l7-7 7 7"></path>
+            </svg>
+        </div>
+    </button>
+</div>
+
+
+</body>
+
+</html>
