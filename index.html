@@ -9,10 +9,12 @@
     <link rel="preconnect" href="googleapis.com">
     <link rel="preconnect" href="gstatic.com" crossorigin>
     <link href="googleapis.com" rel="stylesheet">
+	<!-- <link rel="stylesheet" href="https://cloudflare.com">	 -->
 
     <!-- Native Browser-Agnostic CSS System -->
     <style>
-        /* CSS Variables Framework */
+			
+		/* CSS Variables Framework */
         :root {
             --bg-deep: #06080c;
             --bg-surface: #111522;
@@ -222,6 +224,18 @@
             letter-spacing: 2px;
             border-radius: 50px;
             margin-bottom: 24px;
+        }
+.hero-badge_title {
+            display: inline-block;
+            padding: 6px 16px;
+            background: rgba(255, 42, 95, 0.1);
+            border: 1px solid rgba(255, 42, 95, 0.2);
+            color: var(--primary-glow);
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            border-radius: 50px;
+           
         }
 
         .hero h1 {
@@ -558,7 +572,58 @@
             section {
                 padding: 60px 0;
             }
+		/* Center and space out the icons */
+		.social-icons {
+		display: flex;
+		justify-content: center;
+		gap: 25px;
+		padding: 20px 0;
+		}
+		
+		/* Set the size and smooth hover effect */
+		.icon-link {
+		font-size: 35px;
+		text-decoration: none;
+		transition: transform 0.2s ease;
+		}
+		
+		.icon-link:hover {
+		transform: scale(1.2);
+		}
+		
+		/* Official brand colors */
+		.youtube { color: #FF0000; }
+		.instagram { color: #E1306C; }
+		.facebook { color: #1877F2; }
+		
+        
         }
+		/* This makes the image responsive */
+		.responsive-img {
+		max-width: 40%;
+		height: auto; /* Keeps the aspect ratio perfect so the image doesn't stretch */
+		display: block; /* Removes unwanted white space at the bottom of the image */
+		margin: 0 auto; /* Optional: Centers the image on the page */
+		}
+		.social-icons {
+		text-align: center;   /* ✅ Center the icons */
+		margin-top: 20px;
+		}
+		.social-icons a {
+		margin: 0 10px;
+		text-decoration: none;
+		display: inline-block;
+		align: center;
+		}
+       .social-icons svg {
+		width: 30px;
+		height: 30px;
+		fill: #555;
+		transition: fill 0.3s;
+    }
+    .social-icons a:hover svg.facebook { fill: #3b5998; }
+    .social-icons a:hover svg.instagram { fill: #e4405f; }
+    .social-icons a:hover svg.youtube { fill: #ff0000; }
     </style>
 </head>
 <body>
@@ -594,9 +659,28 @@
                 </ul>
 
                 <a href="#contact" class="btn btn-nav btn-nav-hide">Get Consultation</a>
+				
             </div>
         </div>
+		<div class="social-icons">
+  <!-- YouTube -->
+  <a href="https://youtube.com" target="_blank" class="icon-link youtube">
+    <i class="fa-brands fa-youtube"></i>
+  </a>
+  
+  <!-- Instagram -->
+  <a href="https://instagram.com" target="_blank" class="icon-link instagram">
+    <i class="fa-brands fa-instagram"></i>
+  </a>
+  
+  <!-- Facebook -->
+  <a href="https://facebook.com" target="_blank" class="icon-link facebook">
+    <i class="fa-brands fa-facebook"></i>
+  </a>
+</div>
     </header>
+	
+	
 
     <!-- Hero Showcase Block -->
     <section id="home" class="hero">
@@ -605,7 +689,8 @@
                 <div>
                     <span class="hero-badge">Pan India Operations</span>
                     <h1>Crafting <span>Extraordinary</span> Corporate & Live Stage Experiences</h1>
-                    <p><span>Gnanadeep Mahadasu</span> has 15+ years of immaculate logistic execution. Crazy Boys Events designs elite corporate summits, custom tradeshow installations, and academic milestone programs nationwide.</p>
+                    
+					<p><span>Gnanadeep Mahadasu</span> has 15+ years of immaculate logistic execution. Crazy Boys Events designs elite corporate summits, custom tradeshow installations, and academic milestone programs nationwide.</p>
                     <div class="hero-actions">
                         <a href="#contact" class="btn btn-primary">Connect With Us</a>
                         <a href="#services" class="btn btn-outline">Explore Services</a>
@@ -621,14 +706,37 @@
                             <div class="feature-meta">
                                 <h4>Years Corporate Footprint</h4>
                                 <p>Trusted Across India Networks</p>
+								
                             </div>
+							
+							
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+		
+	<!-- 2. Social Media Icons Code -->
+							<div class="social-icons">
+							<!-- YouTube -->
+							<a href="https://youtube.com" target="_blank" class="icon-link youtube">
+								<i class="fa-brands fa-youtube"></i>
+							</a>
+							
+							<!-- Instagram -->
+							<a href="https://instagram.com" target="_blank" class="icon-link instagram">
+								<i class="fa-brands fa-instagram"></i>
+							</a>
+							
+							<!-- Facebook -->
+							<a href="https://facebook.com" target="_blank" class="icon-link facebook">
+								<i class="fa-brands fa-facebook"></i>
+							</a>
+							</div>
+							
+	
 
+    </section>
     <!-- Hardcoded Services Portfolio Block -->
     <section id="services" class="services">
         <div class="container">
@@ -646,6 +754,7 @@
                         <span class="service-tag">Event Management</span>
                         <h3>Corporate Events</h3>
                         <p>Transforming complex corporate visions into spectacular experiences with tactical planning, crisp audio-visual deployment, and hospitality setups.</p>
+	
                     </div>
                     <a href="#" class="card-link">Learn More &rarr;</a>
                 </div>
@@ -700,13 +809,49 @@
             </div>
         </div>
     </section>
-
+	<!-- Strategy Inquiry Request Section -->
+    <section id="Team">
+        <div class="container">
+            <div class="contact-panel">
+				<div class="contact-info"> 
+					<!-- j .u8 -o0lp;section-badge  hero-badge -->
+					<h4 style="text-align: center;"><span class="hero-badge">Gnanadeep Mahadasu</span></h4>
+					<img src="E:\CB_Website\Website\Deepu_Img.png" alt="Description of image" class="responsive-img">
+					<h4 style="padding: 10px; text-align: center;">Your organiser - where planning meets perfection and who strive to create an exceptional experience for music lovers</h4>
+					<!-- Social Media Icons -->
+					<div class="social-icons">
+						<!-- Facebook -->
+						<a href="https://facebook.com/mahadasu.gnanadeep" target="_blank">
+						<svg class="facebook" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+							<path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 5 3.66 9.13 8.44 9.88v-6.99H8.1v-2.89h2.34V9.41c0-2.3 1.37-3.57 3.47-3.57.99 0 2.03.18 2.03.18v2.23h-1.14c-1.12 0-1.47.7-1.47 1.42v1.7h2.5l-.4 2.89h-2.1v6.99C18.34 21.13 22 17 22 12z"/>
+						</svg>
+						</a>
+					
+						<!-- Instagram -->
+						<a href="https://instagram.com/crazyboysevents" target="_blank">
+						<svg class="instagram" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+							<path d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7zm10 2c1.65 0 3 1.35 3 3v10c0 1.65-1.35 3-3 3H7c-1.65 0-3-1.35-3-3V7c0-1.65 1.35-3 3-3h10zm-5 3a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6zm4.5-2a1.5 1.5 0 11-3.001.001A1.5 1.5 0 0116.5 7z"/>
+						</svg>
+						</a>
+					
+						<!-- YouTube -->
+						<a href="https://youtube.com/CrazyBoysOrchestra" target="_blank">
+						<svg class="youtube" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+							<path d="M21.8 8s-.2-1.4-.8-2c-.7-.8-1.6-.8-2-0.9C16.2 5 12 5 12 5s-4.2 0-7 .1c-.4 0-1.3 0-2 0.9-.6.6-.8 2-.8 2S2 9.6 2 11.2v1.6c0 1.6.2 3.2.2 3.2s.2 1.4.8 2c.7.8 1.6.8 2 .9 2.8.1 7 .1 7 .1s4.2 0 7-.1c.4 0 1.3 0 2-0.9.6-.6.8-2 .8-2s.2-1.6.2-3.2v-1.6c0-1.6-.2-3.2-.2-3.2zM10 14.7V9.3l5.2 2.7-5.2 2.7z"/>
+						</svg>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
     
     <!-- Strategy Inquiry Request Section -->
     <section id="contact">
         <div class="container">
             <div class="contact-panel">
                 <div class="contact-info">
+									
                     <h2>Let's Engineer Your Next Milestone</h2>
                     <p>Drop your approximate target venue metrics and logistics metrics below to prompt an absolute verification callback from our primary coordination deck.</p>
                     
